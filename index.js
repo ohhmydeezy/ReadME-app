@@ -19,17 +19,17 @@ const questions = [
         {
             type: "input",
             name: "installation",
-            message: "Please provide installation instructions.",
+            message: "Please provide information on how the project was created.",
         },
         {
             type: "input",
             name: "usage",
-            message: "Please provide usage information.",
+            message: "Please provide information on how this project can be used",
         },
         {
             type: "input",
             name: "contributing",
-            message: "Please provide contribution guidelines.",
+            message: "who contributed to this project?",
         },
         {
             type: "input",
@@ -67,7 +67,7 @@ const questions = [
 ];
 // function to write README file
 function writeToFile(fileName, data) {
-    inquirer.prompt(questions)
+    inquirer.prompt (questions)
         .then((answers) => {
             fs.writeFile(fileName, data, (err) =>
                 err ? console.error(err) : console.log('Success!'))
@@ -75,9 +75,13 @@ function writeToFile(fileName, data) {
 }
 
 // function to initialize program
-function init() {
+const init = async () => {
+    console.log("Welcome to the README Generator!");
+    const answers = await inquirer.prompt(answers);
+    const generateMarkdown = await generateMarkdown(answers);
     writeToFile("README.md", generateMarkdown);
-}
+    console.log("Your README has been generated!");
+} 
 
 // function call to initialize program
 init();
