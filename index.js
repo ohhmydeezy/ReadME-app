@@ -5,8 +5,7 @@ const generateMarkdown = require("./utils/generateMarkdown");
 
 // array of questions for user
 const promptUser = () => {
-return inquirer.prompt([
-    
+return inquirer.prompt(questions = [
         {
             type: "input",
             name: "title",
@@ -15,12 +14,12 @@ return inquirer.prompt([
         {
             type: "input",
             name: "description",
-            message: "Please provide a description of your project.",
+            message: "Please provide a description of the inspiration for the project and its purpose.",
         },
         {
             type: "input",
             name: "installation",
-            message: "Please provide information on how the project was created.",
+            message: "Please provide step-by-step information on how the project was created.",
         },
         {
             type: "input",
@@ -29,13 +28,8 @@ return inquirer.prompt([
         },
         {
             type: "input",
-            name: "contributing",
-            message: "who contributed to this project?",
-        },
-        {
-            type: "input",
-            name: "tests",
-            message: "Please provide test instructions.",
+            name: "credits",
+            message: "Please provide any credits or acknowledgements.",
         },
         {
             type: "list",
@@ -58,11 +52,6 @@ return inquirer.prompt([
             name: "linkedin",
             message: "Please provide your LinkedIn URL.",
         },
-        {
-            type: "input",
-            name: "credits",
-            message: "Please provide any credits or acknowledgements.",
-        },
     ])
 
 };
@@ -81,8 +70,8 @@ const init = async () => {
     console.log("Welcome to the README Generator!");
     try {
         const answers = await promptUser();
-        const generateMarkdown = generateMarkdown(answers);
-        writeToFile("README.md", generateMarkdown);
+        const markdownContent = await generateMarkdown(answers);
+        writeToFile("README.md", markdownContent);
         console.log("Your README has been generated!");
     } catch (error) {
         console.log(error);

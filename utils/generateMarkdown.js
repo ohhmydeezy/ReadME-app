@@ -1,5 +1,5 @@
-function generateMarkdown(data) {
-    return `# ${data.title}
+function generateMarkdown(answers) {
+    return `
     # ${answers.title}
     ## Description
     ${answers.description}
@@ -34,6 +34,8 @@ function generateMarkdown(data) {
     
     * Credits
     * ${answers.credits}
+    * 
+    * Deployed Application: 
     `
   };
   
