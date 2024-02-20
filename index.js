@@ -4,8 +4,9 @@ const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
 
 // array of questions for user
-const questions = [
-    inquirer.prompt([
+const promptUser = () => {
+return inquirer.prompt([
+    
         {
             type: "input",
             name: "title",
@@ -64,10 +65,11 @@ const questions = [
         },
     ])
 
-];
+};
+
 // function to write README file
 function writeToFile(fileName, data) {
-    inquirer.prompt (questions)
+    inquirer.prompt(questions)
         .then((answers) => {
             fs.writeFile(fileName, data, (err) =>
                 err ? console.error(err) : console.log('Success!'))
@@ -77,11 +79,15 @@ function writeToFile(fileName, data) {
 // function to initialize program
 const init = async () => {
     console.log("Welcome to the README Generator!");
-    const answers = await inquirer.prompt(answers);
-    const generateMarkdown = await generateMarkdown(answers);
-    writeToFile("README.md", generateMarkdown);
-    console.log("Your README has been generated!");
-} 
+    try {
+        const answers = await promptUser();
+        const generateMarkdown = generateMarkdown(answers);
+        writeToFile("README.md", generateMarkdown);
+        console.log("Your README has been generated!");
+    } catch (error) {
+        console.log(error);
+    }
+};
 
 // function call to initialize program
 init();
