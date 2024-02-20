@@ -32,10 +32,20 @@ return inquirer.prompt(questions = [
             message: "Please provide any credits or acknowledgements.",
         },
         {
+            type: "input",
+            name: "tests",
+            message: "Please provide information on how to run tests.",
+        },
+        {
             type: "list",
             name: "license",
             message: "Please choose a license for your project.",
             choices: ["MIT", "Apache", "GPL", "BSD", "None"]
+        },
+        {
+            type: "input",
+            name: "Questions",
+            message: "Please provide information on how to ask questions.",
         },
         {
             type: "input",

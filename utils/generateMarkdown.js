@@ -9,7 +9,7 @@ function generateMarkdown(answers) {
     * [Contributing](#contributing)
     * [Tests](#tests)
     * [License](#license)
-    * [Contact](#contact)
+    * [Questions](#Questions)
     * [Credits](#credits)
     
     ## Installation
@@ -27,7 +27,8 @@ function generateMarkdown(answers) {
     ## License
     ${answers.license}
 
-    ## Contact
+    ## Questions:
+    ${answers.questions}
     * GitHub: [${answers.github}](
     * Email: ${answers.email}
     * LinkedIn: [${answers.linkedin}](
@@ -35,7 +36,7 @@ function generateMarkdown(answers) {
     * Credits
     * ${answers.credits}
     * 
-    * Deployed Application: 
+    * Deployed Application: (
     `
   };
   
