@@ -44,7 +44,7 @@ return inquirer.prompt(questions = [
         },
         {
             type: "input",
-            name: "Questions",
+            name: "questions",
             message: "Please provide information on how to ask questions.",
         },
         {
@@ -66,14 +66,12 @@ return inquirer.prompt(questions = [
 
 };
 
-// function to write README file
+   // function to write README file
 function writeToFile(fileName, data) {
-    inquirer.prompt(questions)
-        .then((answers) => {
-            fs.writeFile(fileName, data, (err) =>
-                err ? console.error(err) : console.log('Success!'))
-        })
+    fs.writeFile(fileName, data, (err) =>
+        err ? console.error(err) : console.log('Success!'))
 }
+
 
 // function to initialize program
 const init = async () => {

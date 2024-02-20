@@ -6,7 +6,6 @@ function generateMarkdown(answers) {
     ## Table of Contents
     * [Installation](#installation)
     * [Usage](#usage)
-    * [Contributing](#contributing)
     * [Tests](#tests)
     * [License](#license)
     * [Questions](#Questions)
@@ -14,9 +13,6 @@ function generateMarkdown(answers) {
     
     ## Installation
     ${answers.installation}
-
-    ## Contributing
-    ${answers.contributing}
 
     ## Tests
     ${answers.tests}
